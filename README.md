@@ -1,5 +1,8 @@
 # Whale Maid Companion
 
+[![checks](https://github.com/yangyiqun747/dsh-plugin-whale-maid/actions/workflows/checks.yml/badge.svg)](https://github.com/yangyiqun747/dsh-plugin-whale-maid/actions/workflows/checks.yml)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 **A chibi whale-maid companion who works, waits, celebrates and naps alongside you.**
 
 ![Six companion states in light and dark themes: resting, working, waiting, celebrate, sleeping, error](docs/images/six-states.png)
