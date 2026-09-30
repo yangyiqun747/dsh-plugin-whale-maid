@@ -1,0 +1,27 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # The build output is committed, so the published package can be installed with no
+      # dependency install at all. This job therefore only runs the portable test suite
+      # and asserts that the committed build still matches its own validation rules.
+      - name: Test
+        run: node --test "tests/*.test.mjs"
+      - name: Rebuild and check the committed output is unchanged
+        run: |
+          node tools/build.mjs
+          git diff --exit-code -- lib/client.js preview/runtime.js
+      - name: Check the bubble font covers every phrase
+        run: node tools/check-glyphs.mjs
