@@ -146,11 +146,21 @@ test('six inert SVGs and offline preview are present, without source paths', () 
   // rejected: a user-profile root or a Windows user path, never a bare "x:/" substring.
   assert.doesNotMatch(read('lib/client.js'), /[A-Za-z]:[\\/]Users[\\/]|\/(?:home|Users)\/|fetch\(|XMLHttpRequest|dsh-pet-research|bridge-build-probe/);
   assert.doesNotMatch(read('lib/remote.js'), /[A-Za-z]:[\\/]Users[\\/]|\/(?:home|Users)\/|dsh-pet-research|bridge-build-probe/);
-  const preview = read('preview/index.html');
-  assert.doesNotMatch(preview, /<script[^>]+src=|__PACKAGE_VERSION__/);
-  assert.ok(preview.includes(`DSH PLUGIN / ${manifest.version}`));
+  // preview/ is a generated development artifact: it is gitignored and never published,
+  // so a fresh clone does not have it. Assert its content only when it was built, and
+  // otherwise confirm the shipped runtime does not depend on it.
+  const previewDirectory = path.join(root, 'preview');
+  if (fs.existsSync(previewDirectory)) {
+    const preview = read('preview/index.html');
+    assert.doesNotMatch(preview, /<script[^>]+src=|__PACKAGE_VERSION__/);
+    assert.ok(preview.includes(`DSH PLUGIN / ${manifest.version}`));
+    assert.ok(read('preview/runtime.js').includes('M 4 6 L 8 10 L 12 6'));
+  } else {
+    for (const shipped of ['lib/index.js', 'lib/client.js', 'lib/remote.js', 'package.json']) {
+      assert.doesNotMatch(read(shipped), /preview\//);
+    }
+  }
   assert.doesNotMatch(read('tools/build.mjs'), /tools\/fixtures|dsh-chevron\.svg/);
-  assert.ok(read('preview/runtime.js').includes('M 4 6 L 8 10 L 12 6'));
   assert.ok(!read('lib/client.js').includes('M 4 6 L 8 10 L 12 6'));
 });
 test('manifest icon is a shippable, inert, package-relative SVG within DSH limits', () => {
