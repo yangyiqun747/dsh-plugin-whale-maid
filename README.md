@@ -63,8 +63,8 @@ DSH's plugin installation interface, for example:
 <wherever you saved it>\dsh-plugin-whale-maid-1.0.0.tgz
 ```
 
-The released 1.0.0 package is 746,526 bytes with SHA-256
-`5ab622055efd8591ed932d5e8a1c734a3616be2974c4aec0c600328ad10bd577`. Run
+The released 1.0.0 package is 747,460 bytes with SHA-256
+`8a9a71681a14af84a0444fc58655996f9da66e727d85f996defc62a3b55a24f7`. Run
 `npm pack` in this directory to rebuild a byte-identical archive.
 
 ### 2. From a checkout
