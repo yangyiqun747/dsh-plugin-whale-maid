@@ -54,26 +54,38 @@ python artwork/tools/review-states.py    # writes artwork/build/states-with-effe
 
 ## Install
 
-### 1. From a local package (recommended for this build)
-
-Build or download `dsh-plugin-whale-maid-<version>.tgz`, then enter its **absolute path** in
-DSH's plugin installation interface, for example:
+**Direct download:** [dsh-plugin-whale-maid-1.0.0.tgz](https://github.com/yangyiqun747/dsh-plugin-whale-maid/releases/download/v1.0.0/dsh-plugin-whale-maid-1.0.0.tgz)
+from the [v1.0.0 release](https://github.com/yangyiqun747/dsh-plugin-whale-maid/releases/tag/v1.0.0),
+then enter its absolute path in DSH's plugin installation interface:
 
 ```text
 <wherever you saved it>\dsh-plugin-whale-maid-1.0.0.tgz
 ```
 
-The released 1.0.0 package is 747,460 bytes with SHA-256
-`8a9a71681a14af84a0444fc58655996f9da66e727d85f996defc62a3b55a24f7`. Run
-`npm pack` in this directory to rebuild a byte-identical archive.
+Verify the download before installing:
 
-### 2. From a checkout
+```text
+size      747460 bytes
+sha256    8a9a71681a14af84a0444fc58655996f9da66e727d85f996defc62a3b55a24f7
+```
 
-Enter the absolute path of this directory in the same interface. The package carries
-prebuilt `lib/` output, so no build step runs on install.
+### Install straight from this repository
 
-After an update that changes Host or client modules, wait for running tasks to finish, fully
-quit DSH, and reopen it. Closing a window may not quit the application.
+Enter this in the same interface; DSH fetches and installs the package for you:
+
+```text
+github:yangyiqun747/dsh-plugin-whale-maid
+```
+
+### Build the package yourself
+
+```sh
+npm pack          # writes dsh-plugin-whale-maid-1.0.0.tgz
+```
+
+The package carries prebuilt `lib/` output, so installing it runs no build step and downloads
+nothing. After an update that changes Host or client modules, wait for running tasks to
+finish, fully quit DSH, and reopen it — closing a window may not quit the application.
 
 The plugin never edits your profile by itself. It inserts exactly one row (entry id
 `whale-maid`) through its `cordis.patch.yml`.
