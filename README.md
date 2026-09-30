@@ -117,8 +117,9 @@ for an offline preview that never connects to DSH or a model.
 
 - **Code:** [MIT](LICENSE), inherited from the upstream project. The upstream repository,
   its build tooling, its state machine and its wording are the work of the upstream authors.
-- **Character artwork:** supplied by this package's owner. See
-  [character asset notes](ASSETS-LICENSE.md); it is not covered by the MIT code license.
+- **Character artwork:** supplied by this package's owner. See the
+  [notice](NOTICE) and [character asset notes](ASSETS-LICENSE.md); it is not covered by the
+  MIT code license.
 - **Bubble fonts:** unchanged upstream subsets, see [font licenses](FONT-LICENSES.md).
 
 This is a personal project, not an official DeepSeek product. It does not represent

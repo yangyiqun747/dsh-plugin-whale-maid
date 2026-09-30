@@ -1,0 +1,34 @@
+Whale Maid Companion — notices
+
+Code license
+------------
+The code in this repository is MIT licensed. See LICENSE. That grant covers the
+source, the build tooling and the generated bundles only.
+
+Character artwork
+-----------------
+The character illustration (artwork/source/), the six generated state assets
+(assets/*.svg), the plugin icon (assets/icon.svg) and the documentation images
+under docs/images/ are contributed by this package's owner. They are NOT covered
+by the MIT code license. See ASSETS-LICENSE.md for their terms and for the exact
+processing steps applied to the source image.
+
+Bubble fonts
+------------
+assets/fonts/ contains two subsets of SIL Open Font License 1.1 fonts
+(ZCOOL KuaiLe for Chinese, Fredoka for Latin), inherited unchanged from the
+upstream project. See FONT-LICENSES.md for sources, the OFL texts and the
+reserved-name requirements.
+
+Upstream
+--------
+This project is a fork of dsh-plugin-whale-pet 0.2.9
+(https://github.com/Yifffan/dsh-plugin-whale-pet), MIT licensed. Its state
+machine, host bridge, build tooling and wording are the work of the upstream
+authors; the character and every state asset were replaced here. The upstream
+whale artwork is not part of this repository.
+
+Unofficial
+----------
+This is a personal project. It is not an official DeepSeek product and does not
+represent DeepSeek's views or endorsement.
